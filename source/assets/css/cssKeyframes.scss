@@ -1,0 +1,130 @@
+@-webkit-keyframes catMove {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@-moz-keyframes catMove {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@-o-keyframes catMove {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes catMove {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+@-webkit-keyframes fadeA {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes fadeA {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+}
+@-o-keyframes fadeA {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+}
+@keyframes fadeA {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+}
+
+
+@-webkit-keyframes fadeB {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes fadeB {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+}
+@-o-keyframes fadeB {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+}
+@keyframes fadeB {
+	0%, 50%, 100% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+}
+
+
+#cat-3 {
+	-webkit-animation: catMove 10s linear infinite; /* Safari 4+ */
+	-moz-animation:    catMove 10s linear infinite; /* Fx 5+ */
+	-o-animation:      catMove 10s linear infinite; /* Opera 12+ */
+	animation: 		   catMove 10s linear infinite;
+
+}
+
+#circle-3 {
+	-webkit-animation: catMove 3s linear infinite; /* Safari 4+ */
+	-moz-animation:    catMove 3s linear infinite; /* Fx 5+ */
+	-o-animation:      catMove 3s linear infinite; /* Opera 12+ */
+	animation: 		   catMove 3s linear infinite;
+}
+
+#title-3 {
+	-webkit-animation: fadeA 8s ease-in-out infinite; /* Safari 4+ */
+	-moz-animation:    fadeA 8s ease-in-out infinite; /* Fx 5+ */
+	-o-animation:      fadeA 8s ease-in-out infinite; /* Opera 12+ */
+	animation: 		   fadeA 8s ease-in-out infinite;
+}
+
+#title-3b {
+	-webkit-animation: fadeB 8s ease-in-out infinite; /* Safari 4+ */
+	-moz-animation:    fadeB 8s ease-in-out infinite; /* Fx 5+ */
+	-o-animation:      fadeB 8s ease-in-out infinite; /* Opera 12+ */
+	animation: 		   fadeB 8s ease-in-out infinite;
+}

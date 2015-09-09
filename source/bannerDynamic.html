@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Yahoo Dynamic HTML Banner Example</title>
+<!-- update the paths to the Greensock source -->
+<script type="text/javascript" src="minified/easing/EasePack.min.js"></script>
+<script type="text/javascript" src="minified/plugins/CSSPlugin.min.js"></script>
+<script type="text/javascript" src="minified/TweenLite.min.js"></script>
+<script type="text/javascript" src="minified/TimelineLite.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+
+</head>
+<body>
+<style type="text/css">
+.a {position:absolute;}
+.o {overflow:hidden;}
+.f {font-family:Arial, Helvetica, sans-serif; font-weight:bold;}
+</style>
+<div id="yahoo_bannerContainer" class="a o" style="width:300px; height:250px; border-color:#666; border-style:solid; border-width:thin;">
+	<div id="bg1" class="a" style="width:300px; height:250px; background-image:url(assets/images/bg1.jpg); z-index:1;"></div>
+	<div id="www" class="a" style="width:117px; height:74px; background-image:url(assets/images/www.png); z-index:2; top: 11px; left: 5px;"></div>
+	<div id="com" class="a" style="width:106px; height:65px; background-image:url(assets/images/com.png); z-index:2; top: 16px; left: 184px;"></div>
+	<div id="title" class="a f" style="z-index:3; top: 90px; left: 0px; font-size:26px; color:#fff; width:300px;; text-align:center;">YOUR DOMAIN<br />IS OUT THERE.</div>
+	<div id="bg2" class="a" style="width:300px; height:250px; background-image:url(assets/images/bg2.jpg); z-index:5;"></div>
+	<div id="tag" class="a f" style="z-index:6; left:18px; top:10px; line-height:1.2em; font-size:24px; color:#7c019a;">Get a web address<br />for your business&mdash;<br />just $1.99/1st year.</div>
+	<div id="reg" class="a" style="z-index:6; background-image:url(assets/images/yreg.jpg); width:267px; height:64px; left: 16px; top: 111px;"><input type="text" style="width:142px; background:none; text-align:right; margin-top:28px; margin-left:28px; border:none; color:#888; font-weight:bold; font-size:12px;" /><!-- button excluded for tutorial example purposes --></div>
+	<div id="ysb" class="a" style="z-index:7; background-image:url(assets/images/ysb.jpg); width:300px; height:59px; left: 0px; top: 191px;"></div>
+</div>
+<script type="text/javascript">
+function getElem(id){ return document.getElementById(id); }
+var scon = getElem('bg1');
+var stars = [];
+var sCnt = 0;
+function star(x,y){
+	scon.innerHTML += '<img id="star'+sCnt+'" src="assets/images/star.png" style="position:absolute; left:'+x+'px; top:'+y+'px;" />';
+	sCnt++;
+	stars.push('star'+sCnt);
+}
+function makeStars(){
+	var i = 0;
+	var max = 40;
+	for(i = 0; i < max; i++){
+		star( Math.floor(Math.random()*300) , Math.floor(Math.random()*140) ) ;
+	}
+	setTimeout('tweenStars()', 200);
+}
+function tweenStars(){
+	var i = 0;
+	var max = stars.length - 1;
+	var dur = 8;
+	var tog = true;
+	var s = null;
+	for(i = 0; i < max; i++){
+		tog = !tog;
+		TweenLite.to(getElem(stars[i]), (dur + Math.floor(Math.random()*12)), { css:{rotation:(tog == true ? 720 : -720)} });
+	}
+}
+makeStars();
+var seq = new TimelineLite();
+seq.append( TweenLite.from(getElem('bg1'), 1, {css:{alpha:0}}) );
+seq.append( TweenLite.from(getElem('www'), 0.8, {css:{alpha:0}}) );
+seq.append( TweenLite.from(getElem('com'), 0.8, {css:{alpha:0}}) );
+seq.append( TweenLite.from(getElem('title'), 0.7, {delay:0.4, css:{alpha:0}}) );
+seq.append( TweenLite.from(getElem('bg2'), 1.1, {delay:1.5, css:{top:310}}) );
+seq.append( TweenLite.from(getElem('tag'), 0.7, {css:{left:-310}}) );
+seq.append( TweenLite.from(getElem('ysb'), 0.6, {css:{top:310}}) );
+seq.append( TweenLite.from(getElem('reg'), 0.7, {css:{top:310}}) );
+seq.play();
+</script>
+</body>
+</html>
